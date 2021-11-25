@@ -31,7 +31,7 @@ function CreatePost() {
         
         // console.log(data);
 
-        axios.post("http://localhost:3001/posts",data,{headers:{accessToken:localStorage.getItem("accessToken")}}).then((response) => {
+        axios.post("https://full-stack-api-arthur.herokuapp.com/posts",data,{headers:{accessToken:localStorage.getItem("accessToken")}}).then((response) => {
 
             //console.log(response.data);
             history.push("/");

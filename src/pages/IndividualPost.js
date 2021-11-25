@@ -13,11 +13,11 @@ function IndividualPost() {
   let history = useHistory();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+    axios.get(`https://full-stack-api-arthur.herokuapp.com/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });
 
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+    axios.get(`https://full-stack-api-arthur.herokuapp.com/comments/${id}`).then((response) => {
       setComments(response.data);
     });
   }, []);
@@ -25,7 +25,7 @@ function IndividualPost() {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3001/comments",
+        "https://full-stack-api-arthur.herokuapp.com/comments",
         {
           commentBody: newComment,
           PostId: id,
@@ -53,7 +53,7 @@ function IndividualPost() {
   
 
   const deleteComment = (id)=>{
-axios.delete(`http://localhost:3001/comments/${id}`,{headers:{accessToken:localStorage.getItem("accessToken")},
+axios.delete(`https://full-stack-api-arthur.herokuapp.com/${id}`,{headers:{accessToken:localStorage.getItem("accessToken")},
 })
 .then(()=>{
   //alert('token deleted!');
@@ -65,7 +65,7 @@ axios.delete(`http://localhost:3001/comments/${id}`,{headers:{accessToken:localS
   };
 
   const deletePost = (id)=>{
-axios.delete(`http://localhost:3001/posts/${id}`,{headers:{accessToken:localStorage.getItem("accessToken")},
+axios.delete(`https://full-stack-api-arthur.herokuapp.com/${id}`,{headers:{accessToken:localStorage.getItem("accessToken")},
 }).then(()=>{
 
   alert("Post Deleted!");
@@ -77,11 +77,11 @@ axios.delete(`http://localhost:3001/posts/${id}`,{headers:{accessToken:localStor
   const editPost =(option)=>{
     if(option==="title"){
   let newTitle =  prompt("Enter New Title:");
-  axios.put("http://localhost:3001/posts/title",{newTitle :newTitle ,id:id}, {headers:{accessToken:localStorage.getItem("accessToken")},});
+  axios.put("https://full-stack-api-arthur.herokuapp.com/posts/title",{newTitle :newTitle ,id:id}, {headers:{accessToken:localStorage.getItem("accessToken")},});
       setPostObject({...postObject,title:newTitle});
     }else{
       let newText = prompt("Enter New Body Text:");
-      axios.put("http://localhost:3001/posts/postText",{newText :newText ,id:id}, {headers:{accessToken:localStorage.getItem("accessToken")},});
+      axios.put("https://full-stack-api-arthur.herokuapp.com/posts/postText",{newText :newText ,id:id}, {headers:{accessToken:localStorage.getItem("accessToken")},});
       setPostObject({...postObject,postText:newText});
     }
   }

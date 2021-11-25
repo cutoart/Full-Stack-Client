@@ -19,7 +19,7 @@ function Registration() {
         
         // console.log(data);
 
-        axios.post("http://localhost:3001/auth",data).then((response) => {
+        axios.post("https://full-stack-api-arthur.herokuapp.com/auth",data).then((response) => {
 
             console.log(response.data);
             history.push("/");

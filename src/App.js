@@ -25,7 +25,7 @@ function App() {
       // if(localStorage.getItem("accessToken")){
       //   setAuthState(true);
       // }
-      axios.get("http://localhost:3001/auth/auth",
+      axios.get("https://full-stack-api-arthur.herokuapp.com/auth/auth",
       {headers:{"accessToken" : localStorage.getItem("accessToken")}}
       ).then((response)=>{
         console.log(response.data);
